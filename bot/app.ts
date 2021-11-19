@@ -18,9 +18,12 @@ bot.on("ready", ()=>{
 
 //check presence
 bot.on("presenceUpdate",(oldPresence, newPresence)=>{
-    //function to track games people are playing
-    if(newPresence.userId == process.env.USER1){
-        checkFortnite(bot, process.env.USER1, newPresence);
+    //function to track games people are playing from start
+    if(oldPresence !== null){
+        if(oldPresence.userId == process.env.USER1){
+            console.log("OLD")
+            checkFortnite(bot, process.env.USER1, oldPresence);
+        }
     }
 })
 
